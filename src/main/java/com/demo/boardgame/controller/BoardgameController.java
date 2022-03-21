@@ -13,7 +13,7 @@ import java.util.List;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/demo")
+@RequestMapping("/boardgame")
 public class BoardgameController {
     @Autowired
     private BoardgameRepository boardgameRepository;
@@ -25,8 +25,8 @@ public class BoardgameController {
         return "boardgames";
     }
 
-    @GetMapping(value = "/test1")
-    public List<BoardGame> test1() throws Exception {
+    @GetMapping(value = "/list")
+    public List<BoardGame> list() throws Exception {
         return boardgameRepository.findAllByQuery();
     }
 

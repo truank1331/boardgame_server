@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/demo2")
+@RequestMapping("/score")
 public class ScoreController {
     @Autowired
     private ScoreRepository scoreRepository;
@@ -24,8 +24,8 @@ public class ScoreController {
         return "boardgames";
     }
 
-    @GetMapping(value = "/test1")
-    public List<Score> test1() throws Exception {
+    @GetMapping(value = "/list")
+    public List<Score> list() throws Exception {
         return scoreRepository.findAllByQuery();
     }
 

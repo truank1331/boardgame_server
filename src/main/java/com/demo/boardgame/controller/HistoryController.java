@@ -1,18 +1,18 @@
 package com.demo.boardgame.controller;
 
-import com.demo.boardgame.entities.BoardGame;
 import com.demo.boardgame.entities.History;
-import com.demo.boardgame.repositories.BoardgameRepository;
 import com.demo.boardgame.repositories.HistoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+@CrossOrigin
 @RestController
-@RequestMapping("/demo1")
+@RequestMapping("/history")
 public class HistoryController {
     @Autowired
     private HistoryRepository historyRepository;
@@ -24,8 +24,8 @@ public class HistoryController {
         return "historyRepository";
     }
 
-    @GetMapping(value = "/test1")
-    public List<History> test1() throws Exception {
+    @GetMapping(value = "/list")
+    public List<History> list() throws Exception {
         return historyRepository.findAllByQuery();
     }
 

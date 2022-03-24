@@ -12,6 +12,6 @@ public interface HistoryRepository extends JpaRepository<History, Integer> {
         public List<History> findAllByQuery();
 
         @Query(value = "select history.play_date, score.history_id, score.username, score.point from score JOIN history on history.history_id=score.history_id WHERE history.game_name=\"Splendor\" ORDER BY score.history_id ASC;", nativeQuery = true)
-        public List<History> findHistoryScore(String gameName);
+        public List<String> findHistoryScore(String gameName);
 
 }

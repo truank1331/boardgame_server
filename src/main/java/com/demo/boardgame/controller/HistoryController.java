@@ -30,7 +30,7 @@ public class HistoryController {
     }
 
     @GetMapping(value = "/getScoreChartList")
-    public List<History> getScoreChartList() throws Exception{
+    public List<String> getScoreChartList() throws Exception{
         return historyRepository.findHistoryScore("Splendor");
     }
 

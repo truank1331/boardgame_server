@@ -29,5 +29,10 @@ public class HistoryController {
         return historyRepository.findAllByQuery();
     }
 
+    @GetMapping(value = "/getScoreChartList")
+    public List<History> getScoreChartList() throws Exception{
+        return historyRepository.findHistoryScore("Splendor");
+    }
+
 
 }

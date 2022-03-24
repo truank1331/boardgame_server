@@ -1,12 +1,10 @@
 package com.demo.boardgame.controller;
 
+import com.demo.boardgame.entities.FindHistoryScore;
 import com.demo.boardgame.entities.History;
 import com.demo.boardgame.repositories.HistoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -29,9 +27,9 @@ public class HistoryController {
         return historyRepository.findAllByQuery();
     }
 
-    @GetMapping(value = "/getScoreChartList")
-    public List<String> getScoreChartList() throws Exception{
-        return historyRepository.findHistoryScore("Splendor");
+    @GetMapping(value = "/getScoreChartList/{gameName}")
+    public List<FindHistoryScore> getScoreChartList(@PathVariable String gameName) throws Exception{
+        return historyRepository.findHistoryScore(gameName);
     }
 
 

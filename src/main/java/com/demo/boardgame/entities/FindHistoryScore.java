@@ -9,7 +9,7 @@ public class FindHistoryScore {
     @Column(name = "play_date")
     private String playDate;
 
-    @Column(name = "historyId")
+    @Column(name = "history_Id")
     private String historyId;
 
     @Column(name = "username")

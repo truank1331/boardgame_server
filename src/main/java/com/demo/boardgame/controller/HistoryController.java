@@ -16,7 +16,7 @@ public class HistoryController {
     private HistoryRepository historyRepository;
 
     @GetMapping(value = "")
-    public String index()throws Exception{
+    public String index() throws Exception {
         List<History> boardgames = historyRepository.findAll();
         System.out.println(boardgames);
         return "historyRepository";
@@ -28,11 +28,8 @@ public class HistoryController {
     }
 
     @GetMapping(value = "/getScoreChartList/{gameName}")
-    public List<FindHistoryScore> getScoreChartList(@PathVariable String gameName) throws Exception{
-        System.out.println("########### "+gameName+" ###########");
-        System.out.println("########### "+historyRepository.findHistoryScore(gameName)+" ###########");
+    public List<FindHistoryScore> getScoreChartList(@PathVariable String gameName) throws Exception {
         return historyRepository.findHistoryScore(gameName);
     }
-
 
 }

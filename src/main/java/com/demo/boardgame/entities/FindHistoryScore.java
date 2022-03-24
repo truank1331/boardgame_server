@@ -1,20 +1,16 @@
 package com.demo.boardgame.entities;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import javax.persistence.*;
 
 @Data
+@AllArgsConstructor
 public class FindHistoryScore {
-    @Column(name = "play_date")
-    private String playDate;
-
-    @Column(name = "history_Id")
-    private String historyId;
-
-    @Column(name = "username")
+    private String play_date;
+    private String history_id;
     private String username;
-
-    @Column(name = "point")
     private Float point;
 }

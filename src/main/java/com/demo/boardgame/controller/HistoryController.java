@@ -28,7 +28,8 @@ public class HistoryController {
     }
 
     @GetMapping(value = "/getScoreChartList/{gameName}")
-    public List<FindHistoryScore> getScoreChartList(@PathVariable String gameName) throws Exception {
+    public List<String> getScoreChartList(@PathVariable String gameName) throws Exception {
+        System.out.println("************"+historyRepository.findHistoryScore(gameName)+"************");
         return historyRepository.findHistoryScore(gameName);
     }
 

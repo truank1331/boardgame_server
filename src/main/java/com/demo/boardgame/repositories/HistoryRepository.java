@@ -7,15 +7,11 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
-public interface HistoryRepository extends JpaRepository<History,Integer> {
-    @Query(
-            value = "SELECT * FROM history;",
-            nativeQuery = true)
-    public List<History> findAllByQuery();
+public interface HistoryRepository extends JpaRepository<History, Integer> {
+        @Query(value = "SELECT * FROM history;", nativeQuery = true)
+        public List<History> findAllByQuery();
 
-    @Query(value = "select history.play_date, score.history_id, score.username, score.point from score JOIN history on history.history_id=score.history_id WHERE history.game_name=? ORDER BY `score`.`history_id` ASC",
-            nativeQuery = true)
-    public List<History> findHistoryScore(String gameName);
-
+        @Query(value = "select history.play_date, score.history_id, score.username, score.point from score JOIN history on history.history_id=score.history_id WHERE history.game_name=?1 ORDER BY `score`.`history_id` ASC", nativeQuery = true)
+        public List<History> findHistoryScore(String gameName);
 
 }
